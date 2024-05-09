@@ -4,6 +4,8 @@ import * as antlr from "antlr4ng";
 import { Token } from "antlr4ng";
 
 import { jsoniqListener } from "./jsoniqListener.js";
+import { jsoniqVisitor } from "./jsoniqVisitor.js";
+
 // for running tests with parameters, TODO: discuss strategy for typed parameters in CI
 // eslint-disable-next-line no-unused-vars
 type int = number;
@@ -7729,6 +7731,13 @@ export class ModuleAndThisIsItContext extends antlr.ParserRuleContext {
              listener.exitModuleAndThisIsIt(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitModuleAndThisIsIt) {
+            return visitor.visitModuleAndThisIsIt(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -7766,6 +7775,13 @@ export class ModuleContext extends antlr.ParserRuleContext {
              listener.exitModule(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitModule) {
+            return visitor.visitModule(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -7790,6 +7806,13 @@ export class MainModuleContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitMainModule) {
              listener.exitMainModule(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitMainModule) {
+            return visitor.visitMainModule(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -7819,6 +7842,13 @@ export class LibraryModuleContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitLibraryModule) {
              listener.exitLibraryModule(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitLibraryModule) {
+            return visitor.visitLibraryModule(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -7877,6 +7907,13 @@ export class PrologContext extends antlr.ParserRuleContext {
              listener.exitProlog(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitProlog) {
+            return visitor.visitProlog(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -7898,6 +7935,13 @@ export class ProgramContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitProgram) {
              listener.exitProgram(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitProgram) {
+            return visitor.visitProgram(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -7929,6 +7973,13 @@ export class StatementsContext extends antlr.ParserRuleContext {
              listener.exitStatements(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitStatements) {
+            return visitor.visitStatements(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -7955,6 +8006,13 @@ export class StatementsAndExprContext extends antlr.ParserRuleContext {
              listener.exitStatementsAndExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitStatementsAndExpr) {
+            return visitor.visitStatementsAndExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -7979,6 +8037,13 @@ export class StatementsAndOptionalExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitStatementsAndOptionalExpr) {
              listener.exitStatementsAndOptionalExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitStatementsAndOptionalExpr) {
+            return visitor.visitStatementsAndOptionalExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8040,6 +8105,13 @@ export class StatementContext extends antlr.ParserRuleContext {
              listener.exitStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitStatement) {
+            return visitor.visitStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8061,6 +8133,13 @@ export class ApplyStatementContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitApplyStatement) {
              listener.exitApplyStatement(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitApplyStatement) {
+            return visitor.visitApplyStatement(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8092,6 +8171,13 @@ export class AssignStatementContext extends antlr.ParserRuleContext {
              listener.exitAssignStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitAssignStatement) {
+            return visitor.visitAssignStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8121,6 +8207,13 @@ export class BlockStatementContext extends antlr.ParserRuleContext {
              listener.exitBlockStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitBlockStatement) {
+            return visitor.visitBlockStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8147,6 +8240,13 @@ export class BreakStatementContext extends antlr.ParserRuleContext {
              listener.exitBreakStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitBreakStatement) {
+            return visitor.visitBreakStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8171,6 +8271,13 @@ export class ContinueStatementContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitContinueStatement) {
              listener.exitContinueStatement(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitContinueStatement) {
+            return visitor.visitContinueStatement(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8200,6 +8307,13 @@ export class ExitStatementContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitExitStatement) {
              listener.exitExitStatement(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitExitStatement) {
+            return visitor.visitExitStatement(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8285,6 +8399,13 @@ export class FlowrStatementContext extends antlr.ParserRuleContext {
              listener.exitFlowrStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitFlowrStatement) {
+            return visitor.visitFlowrStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8333,6 +8454,13 @@ export class IfStatementContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitIfStatement) {
              listener.exitIfStatement(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitIfStatement) {
+            return visitor.visitIfStatement(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8389,6 +8517,13 @@ export class SwitchStatementContext extends antlr.ParserRuleContext {
              listener.exitSwitchStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitSwitchStatement) {
+            return visitor.visitSwitchStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8436,6 +8571,13 @@ export class SwitchCaseStatementContext extends antlr.ParserRuleContext {
              listener.exitSwitchCaseStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitSwitchCaseStatement) {
+            return visitor.visitSwitchCaseStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8472,6 +8614,13 @@ export class TryCatchStatementContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitTryCatchStatement) {
              listener.exitTryCatchStatement(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitTryCatchStatement) {
+            return visitor.visitTryCatchStatement(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8521,6 +8670,13 @@ export class CatchCaseStatementContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitCatchCaseStatement) {
              listener.exitCatchCaseStatement(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitCatchCaseStatement) {
+            return visitor.visitCatchCaseStatement(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8581,6 +8737,13 @@ export class TypeSwitchStatementContext extends antlr.ParserRuleContext {
              listener.exitTypeSwitchStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitTypeSwitchStatement) {
+            return visitor.visitTypeSwitchStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8629,6 +8792,13 @@ export class CaseStatementContext extends antlr.ParserRuleContext {
              listener.exitCaseStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitCaseStatement) {
+            return visitor.visitCaseStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8671,6 +8841,13 @@ export class AnnotationContext extends antlr.ParserRuleContext {
              listener.exitAnnotation(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitAnnotation) {
+            return visitor.visitAnnotation(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8698,6 +8875,13 @@ export class AnnotationsContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitAnnotations) {
              listener.exitAnnotations(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitAnnotations) {
+            return visitor.visitAnnotations(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8735,6 +8919,13 @@ export class VarDeclStatementContext extends antlr.ParserRuleContext {
              listener.exitVarDeclStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitVarDeclStatement) {
+            return visitor.visitVarDeclStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8768,6 +8959,13 @@ export class VarDeclForStatementContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitVarDeclForStatement) {
              listener.exitVarDeclForStatement(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitVarDeclForStatement) {
+            return visitor.visitVarDeclForStatement(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8807,6 +9005,13 @@ export class WhileStatementContext extends antlr.ParserRuleContext {
              listener.exitWhileStatement(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitWhileStatement) {
+            return visitor.visitWhileStatement(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8839,6 +9044,13 @@ export class SetterContext extends antlr.ParserRuleContext {
              listener.exitSetter(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitSetter) {
+            return visitor.visitSetter(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8866,6 +9078,13 @@ export class NamespaceDeclContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitNamespaceDecl) {
              listener.exitNamespaceDecl(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitNamespaceDecl) {
+            return visitor.visitNamespaceDecl(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8900,6 +9119,13 @@ export class AnnotatedDeclContext extends antlr.ParserRuleContext {
              listener.exitAnnotatedDecl(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitAnnotatedDecl) {
+            return visitor.visitAnnotatedDecl(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8932,6 +9158,13 @@ export class DefaultCollationDeclContext extends antlr.ParserRuleContext {
              listener.exitDefaultCollationDecl(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitDefaultCollationDecl) {
+            return visitor.visitDefaultCollationDecl(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -8956,6 +9189,13 @@ export class OrderingModeDeclContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitOrderingModeDecl) {
              listener.exitOrderingModeDecl(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitOrderingModeDecl) {
+            return visitor.visitOrderingModeDecl(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -8995,6 +9235,13 @@ export class EmptyOrderDeclContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitEmptyOrderDecl) {
              listener.exitEmptyOrderDecl(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitEmptyOrderDecl) {
+            return visitor.visitEmptyOrderDecl(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9044,6 +9291,13 @@ export class DecimalFormatDeclContext extends antlr.ParserRuleContext {
              listener.exitDecimalFormatDecl(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitDecimalFormatDecl) {
+            return visitor.visitDecimalFormatDecl(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9086,6 +9340,13 @@ export class QnameContext extends antlr.ParserRuleContext {
              listener.exitQname(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitQname) {
+            return visitor.visitQname(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9104,6 +9365,13 @@ export class DfPropertyNameContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitDfPropertyName) {
              listener.exitDfPropertyName(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitDfPropertyName) {
+            return visitor.visitDfPropertyName(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9141,6 +9409,13 @@ export class ModuleImportContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitModuleImport) {
              listener.exitModuleImport(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitModuleImport) {
+            return visitor.visitModuleImport(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9185,6 +9460,13 @@ export class VarDeclContext extends antlr.ParserRuleContext {
              listener.exitVarDecl(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitVarDecl) {
+            return visitor.visitVarDecl(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9222,6 +9504,13 @@ export class ContextItemDeclContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitContextItemDecl) {
              listener.exitContextItemDecl(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitContextItemDecl) {
+            return visitor.visitContextItemDecl(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9280,6 +9569,13 @@ export class FunctionDeclContext extends antlr.ParserRuleContext {
              listener.exitFunctionDecl(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitFunctionDecl) {
+            return visitor.visitFunctionDecl(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9321,6 +9617,13 @@ export class TypeDeclContext extends antlr.ParserRuleContext {
              listener.exitTypeDecl(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitTypeDecl) {
+            return visitor.visitTypeDecl(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9342,6 +9645,13 @@ export class SchemaLanguageContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitSchemaLanguage) {
              listener.exitSchemaLanguage(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitSchemaLanguage) {
+            return visitor.visitSchemaLanguage(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9371,6 +9681,13 @@ export class ParamListContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitParamList) {
              listener.exitParamList(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitParamList) {
+            return visitor.visitParamList(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9405,6 +9722,13 @@ export class ParamContext extends antlr.ParserRuleContext {
              listener.exitParam(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitParam) {
+            return visitor.visitParam(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9432,6 +9756,13 @@ export class ExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitExpr) {
              listener.exitExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitExpr) {
+            return visitor.visitExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9470,6 +9801,13 @@ export class ExprSingleContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitExprSingle) {
              listener.exitExprSingle(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitExprSingle) {
+            return visitor.visitExprSingle(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9514,6 +9852,13 @@ export class ExprSimpleContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitExprSimple) {
              listener.exitExprSimple(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitExprSimple) {
+            return visitor.visitExprSimple(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9599,6 +9944,13 @@ export class FlowrExprContext extends antlr.ParserRuleContext {
              listener.exitFlowrExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitFlowrExpr) {
+            return visitor.visitFlowrExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9631,6 +9983,13 @@ export class ForClauseContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitForClause) {
              listener.exitForClause(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitForClause) {
+            return visitor.visitForClause(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9688,6 +10047,13 @@ export class ForVarContext extends antlr.ParserRuleContext {
              listener.exitForVar(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitForVar) {
+            return visitor.visitForVar(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9720,6 +10086,13 @@ export class LetClauseContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitLetClause) {
              listener.exitLetClause(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitLetClause) {
+            return visitor.visitLetClause(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9757,6 +10130,13 @@ export class LetVarContext extends antlr.ParserRuleContext {
              listener.exitLetVar(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitLetVar) {
+            return visitor.visitLetVar(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9781,6 +10161,13 @@ export class WhereClauseContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitWhereClause) {
              listener.exitWhereClause(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitWhereClause) {
+            return visitor.visitWhereClause(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9818,6 +10205,13 @@ export class GroupByClauseContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitGroupByClause) {
              listener.exitGroupByClause(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitGroupByClause) {
+            return visitor.visitGroupByClause(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9863,6 +10257,13 @@ export class GroupByVarContext extends antlr.ParserRuleContext {
              listener.exitGroupByVar(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitGroupByVar) {
+            return visitor.visitGroupByVar(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9900,6 +10301,13 @@ export class OrderByClauseContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitOrderByClause) {
              listener.exitOrderByClause(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitOrderByClause) {
+            return visitor.visitOrderByClause(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -9951,6 +10359,13 @@ export class OrderByExprContext extends antlr.ParserRuleContext {
              listener.exitOrderByExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitOrderByExpr) {
+            return visitor.visitOrderByExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -9975,6 +10390,13 @@ export class CountClauseContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitCountClause) {
              listener.exitCountClause(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitCountClause) {
+            return visitor.visitCountClause(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10022,6 +10444,13 @@ export class QuantifiedExprContext extends antlr.ParserRuleContext {
              listener.exitQuantifiedExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitQuantifiedExpr) {
+            return visitor.visitQuantifiedExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10055,6 +10484,13 @@ export class QuantifiedExprVarContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitQuantifiedExprVar) {
              listener.exitQuantifiedExprVar(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitQuantifiedExprVar) {
+            return visitor.visitQuantifiedExprVar(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10111,6 +10547,13 @@ export class SwitchExprContext extends antlr.ParserRuleContext {
              listener.exitSwitchExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitSwitchExpr) {
+            return visitor.visitSwitchExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10153,6 +10596,13 @@ export class SwitchCaseClauseContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitSwitchCaseClause) {
              listener.exitSwitchCaseClause(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitSwitchCaseClause) {
+            return visitor.visitSwitchCaseClause(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10213,6 +10663,13 @@ export class TypeSwitchExprContext extends antlr.ParserRuleContext {
              listener.exitTypeSwitchExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitTypeSwitchExpr) {
+            return visitor.visitTypeSwitchExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10259,6 +10716,13 @@ export class CaseClauseContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitCaseClause) {
              listener.exitCaseClause(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitCaseClause) {
+            return visitor.visitCaseClause(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10311,6 +10775,13 @@ export class IfExprContext extends antlr.ParserRuleContext {
              listener.exitIfExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitIfExpr) {
+            return visitor.visitIfExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10353,6 +10824,13 @@ export class TryCatchExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitTryCatchExpr) {
              listener.exitTryCatchExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitTryCatchExpr) {
+            return visitor.visitTryCatchExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10410,6 +10888,13 @@ export class CatchClauseContext extends antlr.ParserRuleContext {
              listener.exitCatchClause(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitCatchClause) {
+            return visitor.visitCatchClause(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10449,6 +10934,13 @@ export class OrExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitOrExpr) {
              listener.exitOrExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitOrExpr) {
+            return visitor.visitOrExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10492,6 +10984,13 @@ export class AndExprContext extends antlr.ParserRuleContext {
              listener.exitAndExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitAndExpr) {
+            return visitor.visitAndExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10519,6 +11018,13 @@ export class NotExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitNotExpr) {
              listener.exitNotExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitNotExpr) {
+            return visitor.visitNotExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10567,6 +11073,13 @@ export class ComparisonExprContext extends antlr.ParserRuleContext {
              listener.exitComparisonExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitComparisonExpr) {
+            return visitor.visitComparisonExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10597,6 +11110,13 @@ export class StringConcatExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitStringConcatExpr) {
              listener.exitStringConcatExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitStringConcatExpr) {
+            return visitor.visitStringConcatExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10632,6 +11152,13 @@ export class RangeExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitRangeExpr) {
              listener.exitRangeExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitRangeExpr) {
+            return visitor.visitRangeExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10688,6 +11215,13 @@ export class AdditiveExprContext extends antlr.ParserRuleContext {
              listener.exitAdditiveExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitAdditiveExpr) {
+            return visitor.visitAdditiveExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10735,6 +11269,13 @@ export class MultiplicativeExprContext extends antlr.ParserRuleContext {
              listener.exitMultiplicativeExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitMultiplicativeExpr) {
+            return visitor.visitMultiplicativeExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10767,6 +11308,13 @@ export class InstanceOfExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitInstanceOfExpr) {
              listener.exitInstanceOfExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitInstanceOfExpr) {
+            return visitor.visitInstanceOfExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10803,6 +11351,13 @@ export class IsStaticallyExprContext extends antlr.ParserRuleContext {
              listener.exitIsStaticallyExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitIsStaticallyExpr) {
+            return visitor.visitIsStaticallyExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10835,6 +11390,13 @@ export class TreatExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitTreatExpr) {
              listener.exitTreatExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitTreatExpr) {
+            return visitor.visitTreatExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10871,6 +11433,13 @@ export class CastableExprContext extends antlr.ParserRuleContext {
              listener.exitCastableExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitCastableExpr) {
+            return visitor.visitCastableExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10903,6 +11472,13 @@ export class CastExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitCastExpr) {
              listener.exitCastExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitCastExpr) {
+            return visitor.visitCastExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -10951,6 +11527,13 @@ export class ArrowExprContext extends antlr.ParserRuleContext {
              listener.exitArrowExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitArrowExpr) {
+            return visitor.visitArrowExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -10978,6 +11561,13 @@ export class ArrowFunctionSpecifierContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitArrowFunctionSpecifier) {
              listener.exitArrowFunctionSpecifier(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitArrowFunctionSpecifier) {
+            return visitor.visitArrowFunctionSpecifier(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11026,6 +11616,13 @@ export class UnaryExprContext extends antlr.ParserRuleContext {
              listener.exitUnaryExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitUnaryExpr) {
+            return visitor.visitUnaryExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11056,6 +11653,13 @@ export class ValueExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitValueExpr) {
              listener.exitValueExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitValueExpr) {
+            return visitor.visitValueExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11096,6 +11700,13 @@ export class ValidateExprContext extends antlr.ParserRuleContext {
              listener.exitValidateExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitValidateExpr) {
+            return visitor.visitValidateExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11134,6 +11745,13 @@ export class AnnotateExprContext extends antlr.ParserRuleContext {
              listener.exitAnnotateExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitAnnotateExpr) {
+            return visitor.visitAnnotateExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11164,6 +11782,13 @@ export class SimpleMapExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitSimpleMapExpr) {
              listener.exitSimpleMapExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitSimpleMapExpr) {
+            return visitor.visitSimpleMapExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11235,6 +11860,13 @@ export class PostFixExprContext extends antlr.ParserRuleContext {
              listener.exitPostFixExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitPostFixExpr) {
+            return visitor.visitPostFixExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11276,6 +11908,13 @@ export class ArrayLookupContext extends antlr.ParserRuleContext {
              listener.exitArrayLookup(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitArrayLookup) {
+            return visitor.visitArrayLookup(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11300,6 +11939,13 @@ export class ArrayUnboxingContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitArrayUnboxing) {
              listener.exitArrayUnboxing(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitArrayUnboxing) {
+            return visitor.visitArrayUnboxing(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11329,6 +11975,13 @@ export class PredicateContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitPredicate) {
              listener.exitPredicate(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitPredicate) {
+            return visitor.visitPredicate(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11373,6 +12026,13 @@ export class ObjectLookupContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitObjectLookup) {
              listener.exitObjectLookup(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitObjectLookup) {
+            return visitor.visitObjectLookup(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11440,6 +12100,13 @@ export class PrimaryExprContext extends antlr.ParserRuleContext {
              listener.exitPrimaryExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitPrimaryExpr) {
+            return visitor.visitPrimaryExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11469,6 +12136,13 @@ export class BlockExprContext extends antlr.ParserRuleContext {
              listener.exitBlockExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitBlockExpr) {
+            return visitor.visitBlockExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11494,6 +12168,13 @@ export class VarRefContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitVarRef) {
              listener.exitVarRef(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitVarRef) {
+            return visitor.visitVarRef(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11525,6 +12206,13 @@ export class ParenthesizedExprContext extends antlr.ParserRuleContext {
              listener.exitParenthesizedExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitParenthesizedExpr) {
+            return visitor.visitParenthesizedExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11546,6 +12234,13 @@ export class ContextItemExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitContextItemExpr) {
              listener.exitContextItemExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitContextItemExpr) {
+            return visitor.visitContextItemExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11575,6 +12270,13 @@ export class OrderedExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitOrderedExpr) {
              listener.exitOrderedExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitOrderedExpr) {
+            return visitor.visitOrderedExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11609,6 +12311,13 @@ export class UnorderedExprContext extends antlr.ParserRuleContext {
              listener.exitUnorderedExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitUnorderedExpr) {
+            return visitor.visitUnorderedExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11634,6 +12343,13 @@ export class FunctionCallContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitFunctionCall) {
              listener.exitFunctionCall(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitFunctionCall) {
+            return visitor.visitFunctionCall(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11673,6 +12389,13 @@ export class ArgumentListContext extends antlr.ParserRuleContext {
              listener.exitArgumentList(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitArgumentList) {
+            return visitor.visitArgumentList(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11697,6 +12420,13 @@ export class ArgumentContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitArgument) {
              listener.exitArgument(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitArgument) {
+            return visitor.visitArgument(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11725,6 +12455,13 @@ export class FunctionItemExprContext extends antlr.ParserRuleContext {
              listener.exitFunctionItemExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitFunctionItemExpr) {
+            return visitor.visitFunctionItemExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11751,6 +12488,13 @@ export class NamedFunctionRefContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitNamedFunctionRef) {
              listener.exitNamedFunctionRef(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitNamedFunctionRef) {
+            return visitor.visitNamedFunctionRef(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11800,6 +12544,13 @@ export class InlineFunctionExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitInlineFunctionExpr) {
              listener.exitInlineFunctionExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitInlineFunctionExpr) {
+            return visitor.visitInlineFunctionExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11858,6 +12609,13 @@ export class InsertExprContext extends antlr.ParserRuleContext {
              listener.exitInsertExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitInsertExpr) {
+            return visitor.visitInsertExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -11885,6 +12643,13 @@ export class DeleteExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitDeleteExpr) {
              listener.exitDeleteExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitDeleteExpr) {
+            return visitor.visitDeleteExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11921,6 +12686,13 @@ export class RenameExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitRenameExpr) {
              listener.exitRenameExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitRenameExpr) {
+            return visitor.visitRenameExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -11963,6 +12735,13 @@ export class ReplaceExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitReplaceExpr) {
              listener.exitReplaceExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitReplaceExpr) {
+            return visitor.visitReplaceExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -12017,6 +12796,13 @@ export class TransformExprContext extends antlr.ParserRuleContext {
              listener.exitTransformExpr(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitTransformExpr) {
+            return visitor.visitTransformExpr(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -12055,6 +12841,13 @@ export class AppendExprContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitAppendExpr) {
              listener.exitAppendExpr(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitAppendExpr) {
+            return visitor.visitAppendExpr(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -12099,6 +12892,13 @@ export class UpdateLocatorContext extends antlr.ParserRuleContext {
              listener.exitUpdateLocator(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitUpdateLocator) {
+            return visitor.visitUpdateLocator(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -12125,6 +12925,13 @@ export class CopyDeclContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitCopyDecl) {
              listener.exitCopyDecl(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitCopyDecl) {
+            return visitor.visitCopyDecl(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -12172,6 +12979,13 @@ export class SequenceTypeContext extends antlr.ParserRuleContext {
              listener.exitSequenceType(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitSequenceType) {
+            return visitor.visitSequenceType(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -12215,6 +13029,13 @@ export class ObjectConstructorContext extends antlr.ParserRuleContext {
              listener.exitObjectConstructor(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitObjectConstructor) {
+            return visitor.visitObjectConstructor(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -12244,6 +13065,13 @@ export class ItemTypeContext extends antlr.ParserRuleContext {
              listener.exitItemType(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitItemType) {
+            return visitor.visitItemType(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -12268,6 +13096,13 @@ export class FunctionTestContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitFunctionTest) {
              listener.exitFunctionTest(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitFunctionTest) {
+            return visitor.visitFunctionTest(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -12297,6 +13132,13 @@ export class AnyFunctionTestContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitAnyFunctionTest) {
              listener.exitAnyFunctionTest(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitAnyFunctionTest) {
+            return visitor.visitAnyFunctionTest(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -12340,6 +13182,13 @@ export class TypedFunctionTestContext extends antlr.ParserRuleContext {
              listener.exitTypedFunctionTest(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitTypedFunctionTest) {
+            return visitor.visitTypedFunctionTest(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -12367,6 +13216,13 @@ export class SingleTypeContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitSingleType) {
              listener.exitSingleType(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitSingleType) {
+            return visitor.visitSingleType(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -12407,6 +13263,13 @@ export class PairConstructorContext extends antlr.ParserRuleContext {
              listener.exitPairConstructor(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitPairConstructor) {
+            return visitor.visitPairConstructor(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -12436,6 +13299,13 @@ export class ArrayConstructorContext extends antlr.ParserRuleContext {
              listener.exitArrayConstructor(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitArrayConstructor) {
+            return visitor.visitArrayConstructor(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -12459,6 +13329,13 @@ export class UriLiteralContext extends antlr.ParserRuleContext {
              listener.exitUriLiteral(this);
         }
     }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitUriLiteral) {
+            return visitor.visitUriLiteral(this);
+        } else {
+            return visitor.visitChildren(this);
+        }
+    }
 }
 
 
@@ -12480,6 +13357,13 @@ export class StringLiteralContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitStringLiteral) {
              listener.exitStringLiteral(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitStringLiteral) {
+            return visitor.visitStringLiteral(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
@@ -12719,6 +13603,13 @@ export class KeyWordsContext extends antlr.ParserRuleContext {
     public override exitRule(listener: jsoniqListener): void {
         if(listener.exitKeyWords) {
              listener.exitKeyWords(this);
+        }
+    }
+    public override accept<Result>(visitor: jsoniqVisitor<Result>): Result | null {
+        if (visitor.visitKeyWords) {
+            return visitor.visitKeyWords(this);
+        } else {
+            return visitor.visitChildren(this);
         }
     }
 }
