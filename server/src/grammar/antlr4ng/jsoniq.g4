@@ -743,6 +743,16 @@ BraceOr: '{|';
 SquareBracketOpen: '[';
 SquareBracketClose: ']';
 AnnotationSymbol: '%';
+Dot: '.';
+Exclamation: '!';
+Equal: '=';
+Or: '||';
+Not: '!=';
+Less: '<';
+LessEq: '<=';
+Greater: '>';
+GreaterEq: '>=';
+Comma: ',';
 
 NullLiteral: 'null';
 

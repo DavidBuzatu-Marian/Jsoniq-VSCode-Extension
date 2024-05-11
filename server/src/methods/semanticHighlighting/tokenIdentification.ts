@@ -273,6 +273,9 @@ export class TokensParser {
         ]);
       }
       currToken = lexerTokens[++currCounter];
+      if (currToken === undefined) {
+        break;
+      }
       currTokenText = currToken.text ?? ""; // needed to handle missing text case
     }
 
@@ -337,7 +340,7 @@ export class TokensParser {
       { typeNumber: tokenModifiers["readonly"] },
     ]);
     if (currentCounter + 1 === lexerTokens.length) {
-      return currentCounter;
+      return currentCounter + 1;
     }
     let nextToken = lexerTokens[++currentCounter];
     this.storeTokenWithModifier(parsedTokens, nextToken, [
@@ -345,7 +348,7 @@ export class TokensParser {
       { typeNumber: tokenModifiers["readonly"] },
     ]);
     if (currentCounter + 1 === lexerTokens.length) {
-      return currentCounter;
+      return currentCounter + 1;
     }
     return this.parseAttributes(parsedTokens, lexerTokens, currentCounter);
   }

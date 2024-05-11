@@ -57,6 +57,7 @@ export const completion = (message: RequestMessage): CompletionList | null => {
   const inputStream = CharStream.fromString(content);
   const lexer = new jsoniqLexer(inputStream);
   const parser = new jsoniqParser(new CommonTokenStream(lexer));
+  const parseTree = parser.moduleAndThisIsIt();
   // Override error listener as we only want completion behavior.
   parser.removeErrorListeners();
   const parseTree = parser.moduleAndThisIsIt();
@@ -80,6 +81,16 @@ export const completion = (message: RequestMessage): CompletionList | null => {
     jsoniqParser.SquareBracketOpen,
     jsoniqParser.SquareBracketClose,
     jsoniqParser.AnnotationSymbol,
+    jsoniqParser.Dot,
+    jsoniqParser.Exclamation,
+    jsoniqParser.Equal,
+    jsoniqParser.Or,
+    jsoniqParser.Not,
+    jsoniqParser.Less,
+    jsoniqParser.LessEq,
+    jsoniqParser.Greater,
+    jsoniqParser.GreaterEq,
+    jsoniqParser.Comma,
   ]);
 
   // Add rules
